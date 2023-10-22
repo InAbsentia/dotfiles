@@ -1,25 +1,47 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 git clone --bare git@github.com:inabsentia/dotfiles.git $HOME/.dotfiles
 
 # define config alias locally since the dotfiles
 # aren't installed on the system yet
-function config {
+function dfc {
 	git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
 # create a directory to backup existing dotfiles to
 mkdir -p .dotfiles-backup
 
-config checkout
+dfc checkout
 
 if [ $? = 0 ]; then
 	echo "Checked out dotfiles from git@github.com:inabsentia/dotfiles.git"
 else
 	echo "Moving existing dotfiles to ~/.dotfiles-backup"
-	config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+	dfc checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
 fi
 
 # checkout dotfiles from repo
-config checkout
-config config.local status.showUntrackedFiles no
+dfc checkout
+dfc config.local status.showUntrackedFiles no
+
+# Install Homebrew
+NON_INTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Set up ZSH
+git clone --recursive https://github.com/inabsentia/prezto.git "${ZDOTDIR:-${XDG_CONFIG_HOME:-$HOME/.config}/zsh}/.zprezto"
+
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
+export ZDOTDIR="${ZDOTDIR:=$XDG_CONFIG_HOME/zsh}"
+source "$ZDOTDIR/.zshenv"
+
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
+# Install command-line tools
+touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+softwareupdate -i -a
+rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+
+brew install
