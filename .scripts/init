@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# Reference: https://mjones44.medium.com/storing-dotfiles-in-a-git-repository-53f765c0005d
+
 git clone --bare git@github.com:inabsentia/dotfiles.git $HOME/.dotfiles
 
 # define config alias locally since the dotfiles
