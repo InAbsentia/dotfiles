@@ -1,0 +1,11 @@
+.DS_Store
+.vscode
+*.code-workspace
+local_scripts/
+node_modules
+.elixir_ls
+.envrc
+.env*.local
+.aliases/
+.hex/
+.log/
