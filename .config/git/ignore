@@ -9,3 +9,6 @@ node_modules
 .aliases/
 .hex/
 .log/
+lazy-lock.json
+.config/lazygit/state.yml
+.config/zsh/
