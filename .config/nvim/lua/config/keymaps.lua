@@ -21,17 +21,19 @@ vim.keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz")
 vim.keymap.set({ "n", "v" }, "n", "nzzzv")
 vim.keymap.set({ "n", "v" }, "N", "Nzzzv")
 
-vim.keymap.set({ "n", "v" }, "{", "{zzzv")
-vim.keymap.set({ "n", "v" }, "}", "}zzzv")
+-- vim.keymap.set({ "n", "v" }, "{", "{zzzv")
+-- vim.keymap.set({ "n", "v" }, "}", "}zzzv")
 
-vim.keymap.set({ "n", "v" }, "j", "jzz")
-vim.keymap.set({ "n", "v" }, "j", "jzz")
+-- vim.keymap.set({ "n", "v" }, "j", "jzz")
+-- vim.keymap.set({ "n", "v" }, "j", "jzz")
 
-vim.keymap.set({ "n", "v" }, "k", "kzz")
-vim.keymap.set({ "n", "v" }, "k", "kzz")
+-- vim.keymap.set({ "n", "v" }, "k", "kzz")
+-- vim.keymap.set({ "n", "v" }, "k", "kzz")
 
 -- Replace selection without overwriting value in default register
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Quietly replace selection" })
+
+-- Delete selection without overwriting value in default register
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Quietly delete" })
 
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
