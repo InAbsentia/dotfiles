@@ -1,24 +1,33 @@
 return {
+  -- {
+  --   "maxmx03/fluoromachine.nvim",
+  --   config = function()
+  --     local fm = require("fluoromachine")
+  --
+  --     fm.setup({
+  --       glow = true,
+  --       -- theme = "fluoromachine",
+  --       theme = "retrowave",
+  --       -- theme = "delta",
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "JoosepAlviste/palenightfall.nvim",
+  -- },
   {
-    "maxmx03/fluoromachine.nvim",
+    "catppuccin/nvim",
     config = function()
-      local fm = require("fluoromachine")
-
-      fm.setup({
-        glow = true,
-        -- theme = "fluoromachine",
-        theme = "retrowave",
-        -- theme = "delta",
+      require("catppuccin").setup({
+        flavour = "mocha",
       })
     end,
   },
   {
-    "JoosepAlviste/palenightfall.nvim",
-  },
-  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "fluoromachine",
+      -- colorscheme = "fluoromachine",
+      colorscheme = "catppuccin",
     },
   },
 }
