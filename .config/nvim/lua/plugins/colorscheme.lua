@@ -1,22 +1,19 @@
 return {
-  -- {
-  --   "maxmx03/fluoromachine.nvim",
-  --   config = function()
-  --     local fm = require("fluoromachine")
-  --
-  --     fm.setup({
-  --       glow = true,
-  --       -- theme = "fluoromachine",
-  --       theme = "retrowave",
-  --       -- theme = "delta",
-  --     })
-  --   end,
-  -- },
-  -- {
-  --   "JoosepAlviste/palenightfall.nvim",
-  -- },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "moonfly",
+    },
+  },
+  {
+    "lettertwo/laserwave.nvim",
+    lazy = true,
+    -- priority = 1000,
+  },
   {
     "catppuccin/nvim",
+    lazy = true,
+    -- priority = 1000,
     config = function()
       require("catppuccin").setup({
         flavour = "mocha",
@@ -24,10 +21,22 @@ return {
     end,
   },
   {
-    "LazyVim/LazyVim",
-    opts = {
-      -- colorscheme = "fluoromachine",
-      colorscheme = "catppuccin",
-    },
+    "scottmckendry/cyberdream.nvim",
+    lazy = true,
+    -- priority = 1000,
+    config = function()
+      require("cyberdream").setup({
+        transparent = true,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = true,
+      })
+    end,
+  },
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
+    priority = 1000,
   },
 }
