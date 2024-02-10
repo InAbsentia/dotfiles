@@ -39,14 +39,6 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-  -- {
-  --   "williamboman/mason.nvim",
-  --   opts = function(_, opts)
-  --     vim.list_extend(opts.ensure_installed, {
-  --       "elixir-ls",
-  --     })
-  --   end,
-  -- },
   {
     "nvim-neotest/neotest",
     optional = true,
