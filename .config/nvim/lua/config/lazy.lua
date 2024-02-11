@@ -15,9 +15,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.test.core" },
-    -- { import = "lazyvim.plugins.extras.lang.elixir" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
-    { import = "lazyvim.plugins.colorscheme" },
     -- {
     --   "ahmedkhalf/project.nvim",
     --   opts = function(_, opts)
@@ -29,58 +27,8 @@ require("lazy").setup({
       enabled = false,
     },
     {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function(_, opts)
-        vim.list_extend(opts.ensure_installed, {
-          "elm",
-          "rust",
-        })
-      end,
-    },
-    {
-      "williamboman/mason.nvim",
-      opts = function(_, opts)
-        vim.list_extend(opts.ensure_installed, {
-          "elm-format",
-          "elm-language-server",
-          "erlang-ls",
-          "graphql-language-service-cli",
-          "html-lsp",
-          "js-debug-adapter",
-          "lua-language-server",
-          "markdown-toc",
-          "markdownlint",
-          "prettier",
-          "ruby-lsp",
-          "rust-analyzer",
-          "rustfmt",
-          "shfmt",
-          "sqlls",
-          "standardjs",
-          "stylua",
-          "tailwindcss-language-server",
-          "taplo",
-        })
-      end,
-    },
-    {
-      "hrsh7th/nvim-cmp",
-      dependencies = { "hrsh7th/cmp-emoji" },
-      ---@param opts cmp.ConfigSchema
-      opts = function(_, opts)
-        local cmp = require("cmp")
-        opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
-      end,
-    },
-    {
-      "telescope.nvim",
-      dependencies = {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        config = function()
-          require("telescope").load_extension("fzf")
-        end,
-      },
+      "nvim-neo-tree/neo-tree.nvim",
+      enabled = false,
     },
     {
       "folke/flash.nvim",
@@ -113,7 +61,7 @@ require("lazy").setup({
         "gzip",
         -- "matchit",
         -- "matchparen",
-        -- "netrwPlugin",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

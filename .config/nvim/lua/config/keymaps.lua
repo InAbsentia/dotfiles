@@ -19,10 +19,6 @@ vim.keymap.set({ "n", "v" }, "H", "^", { desc = "Move to beginning of line" })
 vim.keymap.set("n", "L", "$", { desc = "Move to end of line" })
 vim.keymap.set("v", "L", "$<left>", { desc = "Move to end of line" })
 
--- Move lines up and down
-vim.keymap.set({ "n", "v" }, "<c-j>", ":m '>+1<CR>gv=gv", { desc = "Move line up" })
-vim.keymap.set({ "n", "v" }, "<c-k>", ":m '<-2<CR>gv=gv", { desc = "Move line down" })
-
 -- Keep cursor position when concatenating next line
 vim.keymap.set("n", "J", "mzJ`z")
 
@@ -53,8 +49,8 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" 
 vim.keymap.set("n", "<leader>Y", [["+y$]], { desc = "Yank rest of line to clipboard" })
 vim.keymap.set("n", "<leader>yy", [["+yy]], { desc = "Yank current line to clipboard" })
 
-vim.keymap.set({ "n", "v" }, "<leader>fs", ":w<CR>", { desc = "Save buffer" })
 vim.keymap.set({ "n", "v" }, "<D-s>", ":w<CR>", { desc = "Save buffer" })
+vim.keymap.set({ "n", "v" }, "<leader>fs", ":w<CR>", { desc = "Save buffer" })
 vim.keymap.set({ "n", "v" }, "<leader>fS", "<cmd>wa<cr>", { desc = "Save all open files" })
 
 vim.keymap.set({ "n", "v" }, "<D-c>", [["+y]], { desc = "Yank to clipboard" })
