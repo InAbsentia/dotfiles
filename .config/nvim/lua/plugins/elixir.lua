@@ -10,7 +10,8 @@ return {
     end,
   },
   {
-    "elixir-tools/elixir-tools.nvim",
+    "inabsentia/elixir-tools.nvim",
+    -- dir = "~/Developer/elixir-tools.nvim",
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
@@ -24,7 +25,8 @@ return {
           enable = true,
           tag = "v0.20.0",
           settings = elixirls.settings({
-            dialyzerEnabled = false,
+            dialyzerEnabled = true,
+            incrementalDialyzer = true,
             enableTestLenses = true,
           }),
           on_attach = function(client, bufnr)
