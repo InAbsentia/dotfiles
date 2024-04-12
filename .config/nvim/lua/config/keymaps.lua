@@ -29,8 +29,8 @@ vim.keymap.set({ "n", "v" }, "n", "nzzzv")
 vim.keymap.set({ "n", "v" }, "N", "Nzzzv")
 
 -- Keep jumps centered vertically
-vim.keymap.set({ "n", "v" }, "{", "{zzzv")
-vim.keymap.set({ "n", "v" }, "}", "}zzzv")
+-- vim.keymap.set({ "n", "v" }, "{", "{zzzv")
+-- vim.keymap.set({ "n", "v" }, "}", "}zzzv")
 vim.keymap.set({ "n", "v" }, "<C-i>", "<C-i>zzzv")
 vim.keymap.set({ "n", "v" }, "<C-o>", "<C-o>zzzv")
 vim.keymap.set({ "n", "v" }, "%", "%zzzv")
