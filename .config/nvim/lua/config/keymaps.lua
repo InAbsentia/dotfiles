@@ -2,6 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local wk = require("which-key")
+wk.register({ ["<leader>o"] = { name = "+org" } })
+
 -- <leader>{n} to move directly to window numbered {n}
 for i = 1, 9 do
   local lhs = "<leader>" .. i
