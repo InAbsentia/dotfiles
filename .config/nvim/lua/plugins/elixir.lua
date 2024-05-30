@@ -23,7 +23,7 @@ return {
         credo = { enable = true },
         elixirls = {
           enable = true,
-          tag = "v0.20.0",
+          tag = "v0.21.0",
           settings = elixirls.settings({
             dialyzerEnabled = true,
             incrementalDialyzer = true,

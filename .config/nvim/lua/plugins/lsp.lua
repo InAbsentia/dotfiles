@@ -13,7 +13,6 @@ return {
         "markdown-toc",
         "markdownlint",
         "prettier",
-        "ruby-lsp",
         "rust-analyzer",
         "rustfmt",
         "shfmt",
