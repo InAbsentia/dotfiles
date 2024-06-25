@@ -5,10 +5,11 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "elm-format",
         "elm-language-server",
-        "erlang-ls",
+        -- "erlang-ls",
         "graphql-language-service-cli",
         "html-lsp",
         "js-debug-adapter",
+        -- "lexical",
         "lua-language-server",
         "markdown-toc",
         "markdownlint",
