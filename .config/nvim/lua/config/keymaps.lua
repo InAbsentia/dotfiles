@@ -3,9 +3,11 @@
 -- Add any additional keymaps here
 
 local wk = require("which-key")
-wk.register({ ["<leader>d"] = { name = "+delete" } })
-wk.register({ ["<leader>o"] = { name = "+org" } })
-wk.register({ ["<leader>y"] = { name = "+clipboard" } })
+wk.add({
+  -- { "<leader>d", group = "delete" },
+  { "<leader>o", group = "org", icon = { icon = "", color = "azure" } },
+  { "<leader>y", group = "clipboard", icon = { icon = "󱉣", color = "yellow" } },
+})
 
 -- <leader>{n} to move directly to window numbered {n}
 for i = 1, 9 do
@@ -50,10 +52,10 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Quietly Delete" })
 
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
 
-vim.keymap.set("v", "<leader>y", [["+y]], { desc = "Yank To Clipboard" })
-vim.keymap.set("v", "<leader>p", [["+p]], { desc = "Put From Clipboard" })
+vim.keymap.set("v", "<leader>yy", [["+y]], { desc = "Yank To Clipboard" })
+vim.keymap.set("v", "<leader>yp", [["+p]], { desc = "Put From Clipboard" })
 
-vim.keymap.set("n", "<leader>yt", [["+y]], { desc = "Yank To Motion" })
+vim.keymap.set("n", "<leader>ym", [["+y]], { desc = "Yank Motion" })
 vim.keymap.set("n", "<leader>yy", [["+yy]], { desc = "Yank Line" })
 vim.keymap.set("n", "<leader>yY", [["+y$]], { desc = "Yank Rest" })
 vim.keymap.set("n", "<leader>yp", [["+p]], { desc = "Paste After" })
