@@ -4,6 +4,8 @@
 local_scripts/
 node_modules
 .elixir_ls
+.elixir-tools
+.mise.local.toml
 .envrc
 .env*.local
 .aliases/
