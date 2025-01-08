@@ -22,8 +22,8 @@ return {
 
       elixir.setup({
         nextls = {
-          -- enable = false,
-          enable = true,
+          enable = false,
+          -- enable = true,
           init_options = {
             -- mix_env = "dev",
             -- mix_target = "host",
@@ -41,8 +41,8 @@ return {
         },
         credo = { enable = true },
         elixirls = {
-          enable = false,
-          -- enable = true,
+          -- enable = false,
+          enable = true,
           -- tag = "v0.22.0",
           settings = elixirls.settings({
             dialyzerEnabled = true,
