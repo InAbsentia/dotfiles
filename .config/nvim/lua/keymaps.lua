@@ -48,9 +48,9 @@ for i = 1, 9 do
   map("n", lhs, rhs, { desc = "Window " .. i })
 end
 
-map({ "n", "v" }, "H", "^", { desc = "Move To Beginning Of Line" })
-map("n", "L", "$", { desc = "Move To End Of Line" })
-map("v", "L", "$<left>", { desc = "Move To End Of Line" })
+map({ "n", "v" }, "H", "^", { desc = "Go To Beginning Of Line" })
+map("n", "L", "$", { desc = "Go To End Of Line" })
+map("v", "L", "$<left>", { desc = "Go To End Of Line" })
 
 -- Move Lines (handled by mini.move)
 -- map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
