@@ -16,6 +16,7 @@ require("lazy").setup({
   require("plugins.colorscheme"),
   require("plugins.conform"),
   require("plugins.explore"),
+  require("plugins.find_replace"),
   require("plugins.git"),
   require("plugins.indent_line"),
   require("plugins.lspconfig"),
