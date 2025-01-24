@@ -1,0 +1,16 @@
+theme = synthwave-everything
+
+font-family = Monaspace Neon Var
+font-style = Light
+font-size = 14
+
+adjust-cell-height = 6
+
+fullscreen = true
+
+window-colorspace = display-p3
+quit-after-last-window-closed = true
+macos-option-as-alt = left
+
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
