@@ -42,6 +42,13 @@ return {
         -- or set either per mode via a function
         -- list = { selection = { preselect = function(ctx) return ctx.mode ~= 'cmdline' end } },
 
+        menu = {
+          draw = {
+            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+            treesitter = { "lsp" },
+          },
+        },
+
         -- Show documentation when selecting a completion item
         documentation = {
           auto_show = true,
