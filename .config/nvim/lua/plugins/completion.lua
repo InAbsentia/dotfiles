@@ -26,6 +26,29 @@ return {
         ["<cr>"] = { "accept", "fallback" },
       },
 
+      completion = {
+        -- 'prefix' will fuzzy match on the text before the cursor
+        -- 'full' will fuzzy match on the text before *and* after the cursor
+        -- example: 'foo_|_bar' will match 'foo_' for 'prefix' and 'foo__bar' for 'full'
+        keyword = { range = "full" },
+
+        -- Don't select by default, auto insert on selection
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = true,
+          },
+        },
+        -- or set either per mode via a function
+        -- list = { selection = { preselect = function(ctx) return ctx.mode ~= 'cmdline' end } },
+
+        -- Show documentation when selecting a completion item
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 500,
+        },
+      },
+
       appearance = {
         -- Sets the fallback highlight groups to nvim-cmp's highlight groups
         -- Useful for when your theme doesn't support blink.cmp
