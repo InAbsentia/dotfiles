@@ -2,11 +2,11 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("local_" .. name, { clear = true })
 end
 
--- Write all open buffers when focus lost
+-- Exit insert mode and write all open buffers when focus lost
 vim.api.nvim_create_autocmd({ "FocusLost", "TermClose", "TermLeave" }, {
   group = augroup("autosave"),
 
-  command = "silent! wa",
+  command = "stopinsert | silent! wa",
 })
 
 -- Clear trailing whitespace before write
