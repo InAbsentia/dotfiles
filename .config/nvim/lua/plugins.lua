@@ -21,7 +21,7 @@ require("lazy").setup({
   require("plugins.indent_line"),
   require("plugins.lspconfig"),
   require("plugins.luarocks"),
-  require("plugins.md-preview"),
+  require("plugins.markdown"),
   require("plugins.mini"),
   require("plugins.noice"),
   require("plugins.output-panel"),
