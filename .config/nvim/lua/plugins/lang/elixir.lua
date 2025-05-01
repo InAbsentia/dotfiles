@@ -11,7 +11,7 @@ return {
   },
   {
     -- "elixir-tools/elixir-tools.nvim",
-    "inabsentia/elixir-tools.nvim",
+    "elixir-tools/elixir-tools.nvim",
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
