@@ -7,7 +7,7 @@ git clone --bare git@github.com:inabsentia/dotfiles.git $HOME/.dotfiles
 # define config alias locally since the dotfiles
 # aren't installed on the system yet
 function dfc {
-	git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+  git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
 # create a directory to backup existing dotfiles to
@@ -16,10 +16,10 @@ mkdir -p .dotfiles-backup
 dfc checkout
 
 if [ $? = 0 ]; then
-	echo "Checked out dotfiles from git@github.com:inabsentia/dotfiles.git"
+  echo "Checked out dotfiles from git@github.com:inabsentia/dotfiles.git"
 else
-	echo "Moving existing dotfiles to ~/.dotfiles-backup"
-	dfc checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+  echo "Moving existing dotfiles to ~/.dotfiles-backup"
+    dfc checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
 fi
 
 # checkout dotfiles from repo
@@ -49,3 +49,11 @@ source "$ZDOTDIR/.zshenv"
 xcode-select --install || true
 
 brew bundle
+
+# Link Emacs.app and start service
+osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@30/Emacs.app" at posix file "/Applications" with properties {name:"Emacs.app"}'
+brew services start d12frosted/emacs-plus/emacs-plus@30
+
+# Set up Doom Emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+$HOME/config/emacs/bin/doom install
