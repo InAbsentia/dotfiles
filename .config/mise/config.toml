@@ -1,6 +1,6 @@
 [tools]
 elixir = "latest"
 erlang = "latest"
-node = "20"
+node = "22"
 ruby = "latest"
 usage = "latest"
