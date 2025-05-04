@@ -27,7 +27,7 @@
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
-(setq doom-font (font-spec :family "Monaspace Neon Var" :size 14 :weight 'semi-light)
+(setq doom-font (font-spec :family "Monaspace Neon Var" :size 16 :weight 'light)
       doom-symbol-font (font-spec :family "Symbols Nerd Font Mono" :size 13))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -50,6 +50,17 @@
 
 ;; Save all open buffers when window focus lost
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
+
+(setq select-enable-clipboard nil)
+(modify-syntax-entry ?_ "w")
+
+;; Keymaps
+(general-define-key
+ :states 'motion
+ (kbd "RET") #'evil-next-line-first-non-blank
+ "H" #'evil-first-non-blank
+ "L" #'evil-last-non-blank)
+
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
