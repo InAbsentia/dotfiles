@@ -44,7 +44,30 @@ return {
 
         menu = {
           draw = {
-            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+            components = {
+              label = {
+                text = function(ctx)
+                  -- Fix for weird rendering in ElixirLS structs/behaviours etc
+                  -- structs, behaviours and others have a label_detail emitted
+                  -- by ElixirLS, and it looks bad when there's no space between
+                  -- the module label and the label_detail.
+                  --
+                  -- The label_detail has no space because it is normally meant
+                  -- for function signatures, e.g. `my_function(arg1, arg2)` -
+                  -- this case the label is `my_function` and the label_detail
+                  -- is `(arg1, arg2)`.
+                  if ctx.item.client_name == "ElixirLS" and ctx.kind ~= "Function" and ctx.kind ~= "Macro" then
+                    return ctx.label
+                  end
+                  return ctx.label .. ctx.label_detail
+                end,
+              },
+            },
+            columns = {
+              { "kind_icon", "label", gap = 1 },
+              { "label_description", gap = 1 },
+              { "source_name" },
+            },
             treesitter = { "lsp" },
           },
         },
