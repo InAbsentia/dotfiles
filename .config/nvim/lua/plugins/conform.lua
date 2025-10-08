@@ -1,20 +1,20 @@
 return {
   { -- Autoformat
-    'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
-    cmd = { 'ConformInfo' },
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     keys = {
       {
-        '<leader>cf',
+        "<leader>cf",
         function()
-          require('conform').format { async = true, lsp_fallback = true }
+          require("conform").format({ async = true, lsp_fallback = true })
         end,
-        mode = '',
-        desc = 'Format buffer',
+        mode = "",
+        desc = "Format buffer",
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -26,13 +26,29 @@ return {
         }
       end,
       formatters_by_ft = {
-        lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use a sub-list to tell conform to run *until* a formatter
-        -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        elixir = { "mix" },
+        heex = { "mix" },
+        javascript = { "prettier", "standardjs" },
+        lua = { "stylua" },
+        rust = { "rustfmt" },
+        toml = { "taplo" },
+        typescript = { "prettier", "ts-standard" },
+        yaml = { "yamlfmt" },
+        ["_"] = { "trim_whitespace", "trim_newlines" },
+      },
+      formatters = {
+        ["ts-standard"] = function(_bufnr)
+          local util = require("conform.util")
+
+          return {
+            meta = {
+              url = "https://standardjs.com",
+              description = "Typescript Standard style guide, linter, and formatter.",
+            },
+            command = util.from_node_modules("ts-standard"),
+            args = { "--fix", "--stdin" },
+          }
+        end,
       },
     },
   },

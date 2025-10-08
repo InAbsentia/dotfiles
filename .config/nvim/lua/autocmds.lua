@@ -9,19 +9,6 @@ vim.api.nvim_create_autocmd({ "FocusLost", "TermClose", "TermLeave" }, {
   command = "stopinsert | silent! wa",
 })
 
--- Clear trailing whitespace before write
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = augroup("trailing_whitespace"),
-  pattern = { "*" },
-  callback = function()
-    local save_cursor = vim.fn.getpos(".")
-    pcall(function()
-      vim.cmd([[%s/\s\+$//e]])
-    end)
-    vim.fn.setpos(".", save_cursor)
-  end,
-})
-
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = augroup("checktime"),
