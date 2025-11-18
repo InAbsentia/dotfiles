@@ -43,7 +43,7 @@ return {
         elixirls = {
           -- enable = false,
           enable = true,
-          -- tag = "v0.22.0",
+          tag = "v0.29.3",
           settings = elixirls.settings({
             dialyzerEnabled = true,
             incrementalDialyzer = true,
